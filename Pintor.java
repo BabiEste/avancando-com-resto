@@ -17,25 +17,35 @@ public class Pintor extends JPanel {
             draw(g);
             x = x - 50;
         }
+
         for (i=0;i<9;i++) {
             draw (g);
             y = y - 50;
         }
+
         for (i=0;i<11;i++) {
             draw (g);
             x = x + 50;
         }
+
         for (i=0;i<6;i++) {
             draw (g);
             y = y + 50;
         }
+
         for (i = 0; i < 6; i++) {
             draw(g);
             x = x - 50;
         }
 
         g.drawString ("FIM", x, y);
-        g.drawRect (50,50, 50, 50);
+
+        //botao de rodar
+        g.drawRect (20,50, 70, 50);
+        g.setColor (Color.blue);
+        g.fillRect (20, 50, 70, 50);
+        g.setColor (Color.white);
+        drawCenteredString (g, "Rodar", 50, 70, 20, 50, g.getFont());
 
     }
 
@@ -43,10 +53,21 @@ public class Pintor extends JPanel {
         g.drawRect(x, y, 50, 50);
         v[indice] = (int) (Math.random()*100);
         String a = Integer.toString (v[indice]);
-        g.drawString (a, x+25, y+25);
+        drawCenteredString (g, a, 50, 50, x, y, g.getFont());
     }
 
-
+    public void drawCenteredString(Graphics g, String text, int altura, int comprimento, int xret, int yret, Font font) {
+    // Get the FontMetrics
+    FontMetrics metrics = g.getFontMetrics(font);
+    // Determine the X coordinate for the text
+    int xmeio = xret + (comprimento - metrics.stringWidth(text)) / 2;
+    // Determine the Y coordinate for the text (note we add the ascent, as in java 2d 0 is top of the screen)
+    int ymeio = yret + ((altura - metrics.getHeight()) / 2) + metrics.getAscent();
+    // Set the font
+    g.setFont(font);
+    // Draw the String
+    g.drawString(text, xmeio, ymeio);
+}
 
 
 }
@@ -64,24 +85,11 @@ class Dado extends JFrame { //Imagem aleatória gerada para o dado
 class PP extends JFrame { //main
 
     public static void main(String[] args) {
-        JPanel f = new JPanel();
         JFrame window = new JFrame();
-        f.setLayout (new FlowLayout());
-        JPanel esquerda = new JPanel (new FlowLayout());
-        f.add(new Pintor ());
-        JButton botao = new JButton("Rodar");
 
-        esquerda.add(botao);
+        window.add(new Pintor ());
 
-        window.setLayout(new BorderLayout());
-
-        window.add(f, BorderLayout.WEST);
-        window.add(esquerda, BorderLayout.EAST);
-        window.pack();
-
-
-
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //faz a janela ser fechável
 
         window.setSize(800, 600);
         window.setVisible(true);
