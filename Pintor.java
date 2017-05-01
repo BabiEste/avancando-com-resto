@@ -68,9 +68,6 @@ public class Pintor extends JPanel {
     // Draw the String
     g.drawString(text, xmeio, ymeio);
 }
-<<<<<<< HEAD
-
-
 }
 
 class PP extends JFrame { //main
