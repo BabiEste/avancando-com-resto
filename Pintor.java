@@ -68,17 +68,8 @@ public class Pintor extends JPanel {
     // Draw the String
     g.drawString(text, xmeio, ymeio);
 }
+<<<<<<< HEAD
 
-
-}
-
-class Dado extends JFrame { //Imagem aleatória gerada para o dado
-	String[] imagens = new String[]{"/img/dado1.png", "/img/dado2.png", "/img/dado3.png", "/img/dado4.png", "/img/dado5.png", "/img/dado6.png"}; //Vetor de imagens
-
-	public iniciar(){
-		
-	}
-	ImageIcon icone = createImageIcon();
 
 }
 
