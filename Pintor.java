@@ -3,7 +3,7 @@ import javax.swing.*;
 import javax.imageio.*;
 import java.io.*;
 
-public class Pintor extends JPanel { 
+public class Pintor extends JPanel {
 	public int x = 680, y = 500, i = 0, indice = 0; //indice é indice dos strings
 
     int v[] = new int[40];
@@ -48,6 +48,16 @@ public class Pintor extends JPanel {
 
 
 
+
+}
+
+class Dado extends JFrame { //Imagem aleatória gerada para o dado
+	String[] imagens = new String[]{"/img/dado1.png", "/img/dado2.png", "/img/dado3.png", "/img/dado4.png", "/img/dado5.png", "/img/dado6.png"}; //Vetor de imagens
+
+	public iniciar(){
+		
+	}
+	ImageIcon icone = createImageIcon();
 
 }
 
