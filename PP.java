@@ -5,6 +5,7 @@ import javax.imageio.*;
 import java.io.*;
 import javax.swing.event.MouseInputListener;
 import java.awt.geom.Rectangle2D;
+import java.util.*;
 
 class Pintor extends JPanel {
     public int x = 680, y = 500, i = 0, indice = 0; //indice é indice dos numeros e retangulos
@@ -84,7 +85,7 @@ class Pintor extends JPanel {
 
 class mouse implements MouseInputListener {
 
-    int pmouseX, pmouseY, mouseX, mouseY, numerodado;
+    int pmouseX, pmouseY, mouseX, mouseY, numerodado, tentativa;
     boolean mousePressed;
 
     void mouse(MouseEvent e) {
@@ -117,11 +118,14 @@ class mouse implements MouseInputListener {
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) { 
+    public void mouseClicked(MouseEvent e) {
+    	Scanner ler = new Scanner (System.in);
         if (e.getX() >=20 && e.getX() <=90 && e.getY() >=75 && e.getY()<=125 ) {
         numerodado = (int) (Math.random()*6); //TENTA ENFIAR AQUI AS IMAGENS 
         if (numerodado == 0) numerodado = 6;
         System.out.println ("Qual é o resto de " + Pintor.v[PP.posicao] + " dividido por " + numerodado + "? ");  
+    	int tentativa = ler.nextInt();
+    	System.out.println ("Você digitou " + tentativa);
     } 
 }
 
